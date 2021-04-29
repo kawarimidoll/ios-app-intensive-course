@@ -22,13 +22,13 @@ struct ContentView: View {
                 Button(action: {
                     soundPlayer.cymbalPlay()
                 }) {
-                    Image("cymbal")
+                    ButtonImageView(imageName: "cymbal")
                 }
 
                 Button(action: {
                     soundPlayer.guitarPlay()
                 }) {
-                    Image("guitar")
+                    ButtonImageView(imageName: "guitar")
                 }
             }
         }

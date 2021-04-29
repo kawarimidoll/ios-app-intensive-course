@@ -12,6 +12,7 @@
 		7B165360263A4EE700E3CA21 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B16535F263A4EE700E3CA21 /* Assets.xcassets */; };
 		7B165363263A4EE700E3CA21 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B165362263A4EE700E3CA21 /* Preview Assets.xcassets */; };
 		7B16536C263A50F300E3CA21 /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B16536B263A50F300E3CA21 /* SoundPlayer.swift */; };
+		7B16536F263A867D00E3CA21 /* ButtonImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B16536E263A867D00E3CA21 /* ButtonImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		7B165362263A4EE700E3CA21 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7B165364263A4EE700E3CA21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B16536B263A50F300E3CA21 /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
+		7B16536E263A867D00E3CA21 /* ButtonImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				7B16535B263A4EE600E3CA21 /* MyMusicApp.swift */,
 				7B16535D263A4EE600E3CA21 /* ContentView.swift */,
+				7B16536E263A867D00E3CA21 /* ButtonImageView.swift */,
 				7B16536B263A50F300E3CA21 /* SoundPlayer.swift */,
 				7B16535F263A4EE700E3CA21 /* Assets.xcassets */,
 				7B165364263A4EE700E3CA21 /* Info.plist */,
@@ -143,6 +146,7 @@
 			files = (
 				7B16535E263A4EE600E3CA21 /* ContentView.swift in Sources */,
 				7B16536C263A50F300E3CA21 /* SoundPlayer.swift in Sources */,
+				7B16536F263A867D00E3CA21 /* ButtonImageView.swift in Sources */,
 				7B16535C263A4EE600E3CA21 /* MyMusicApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
