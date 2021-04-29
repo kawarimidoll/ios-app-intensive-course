@@ -12,6 +12,7 @@
 		7B1C819A263AB2EB00B77003 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B1C8199263AB2EB00B77003 /* Assets.xcassets */; };
 		7B1C819D263AB2EB00B77003 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B1C819C263AB2EB00B77003 /* Preview Assets.xcassets */; };
 		7B1C81A6263AB3BD00B77003 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1C81A5263AB3BD00B77003 /* SettingView.swift */; };
+		7B1C81A9263B6B4200B77003 /* CircleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1C81A8263B6B4200B77003 /* CircleButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		7B1C819C263AB2EB00B77003 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7B1C819E263AB2EB00B77003 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B1C81A5263AB3BD00B77003 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		7B1C81A8263B6B4200B77003 /* CircleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				7B1C8195263AB2EA00B77003 /* MyTimerApp.swift */,
 				7B1C8197263AB2EA00B77003 /* ContentView.swift */,
+				7B1C81A8263B6B4200B77003 /* CircleButtonView.swift */,
 				7B1C81A5263AB3BD00B77003 /* SettingView.swift */,
 				7B1C8199263AB2EB00B77003 /* Assets.xcassets */,
 				7B1C819E263AB2EB00B77003 /* Info.plist */,
@@ -143,6 +146,7 @@
 			files = (
 				7B1C81A6263AB3BD00B77003 /* SettingView.swift in Sources */,
 				7B1C8198263AB2EA00B77003 /* ContentView.swift in Sources */,
+				7B1C81A9263B6B4200B77003 /* CircleButtonView.swift in Sources */,
 				7B1C8196263AB2EA00B77003 /* MyTimerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

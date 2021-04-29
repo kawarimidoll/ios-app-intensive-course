@@ -21,31 +21,12 @@ struct ContentView: View {
                         .font(.largeTitle)
 
                     HStack {
-                        Button(action: {
-
-                        }) {
-                            Text("Start!")
-                                .font(.title)
-                                .foregroundColor(Color.white)
-                                .frame(width: 140, height: 140)
-                                .background(Color("startColor"))
-                                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                        }
-                        Button(action: {
-
-                        }) {
-                            Text("Stop!")
-                                .font(.title)
-                                .foregroundColor(Color.white)
-                                .frame(width: 140, height: 140)
-                                .background(Color("stopColor"))
-                                .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                        }
+                        CircleButtonView(buttonName: "start")
+                        CircleButtonView(buttonName: "stop")
                     }
                 }
             }
             .navigationBarItems(trailing:
-
                                     NavigationLink(destination: SettingView()) {
                                         Text("Set time")
                                     }
