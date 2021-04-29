@@ -8,9 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var inputText: String = ""
+    @State var dispSearchKey: String = ""
+
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            TextField("Input keyword",
+                      text: $inputText,
+                      onCommit: {
+                        dispSearchKey = inputText
+                        print("keyword: " + dispSearchKey)
+                      })
+                .padding()
+
+            MapView(searchKey: dispSearchKey)
+        }
     }
 }
 
