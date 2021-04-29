@@ -22,29 +22,28 @@ struct MapView: UIViewRepresentable {
 
         let geocoder = CLGeocoder()
 
-        geocoder.geocodeAddressString(
-            searchKey,
-            completionHandler: { (placemarks, error) in
-                // placemarks is multiple value and contents of them is nullable value
-                // so checking is needed like as `placemarks?.first?.location?.coordinate`
-                if let unwrapPlacemarks = placemarks,
-                   let firstPlacemark = unwrapPlacemarks.first,
-                   let location = firstPlacemark.location {
-                    let targetCoordinate = location.coordinate
-                    print(targetCoordinate)
+        geocoder.geocodeAddressString(searchKey) {
+            (placemarks, error) in
+            // placemarks is multiple value and contents of them is nullable value
+            // so checking is needed like as `placemarks?.first?.location?.coordinate`
+            if let unwrapPlacemarks = placemarks,
+               let firstPlacemark = unwrapPlacemarks.first,
+               let location = firstPlacemark.location {
+                let targetCoordinate = location.coordinate
+                print(targetCoordinate)
 
-                    let pin = MKPointAnnotation()
-                    pin.coordinate = targetCoordinate
-                    pin.title = searchKey
+                let pin = MKPointAnnotation()
+                pin.coordinate = targetCoordinate
+                pin.title = searchKey
 
-                    uiView.addAnnotation(pin)
-                    uiView.region = MKCoordinateRegion(
-                        center: targetCoordinate,
-                        latitudinalMeters: 500.0,
-                        longitudinalMeters: 500.0
-                    )
-                }
-            })
+                uiView.addAnnotation(pin)
+                uiView.region = MKCoordinateRegion(
+                    center: targetCoordinate,
+                    latitudinalMeters: 500.0,
+                    longitudinalMeters: 500.0
+                )
+            }
+        }
     }
 }
 
