@@ -7,6 +7,19 @@
 
 import SwiftUI
 
+let filterArray = [
+    "CIPhotoEffectMono",
+    "CIPhotoEffectChrome",
+    "CIPhotoEffectFade",
+    "CIPhotoEffectInstant",
+    "CIPhotoEffectNoir",
+    "CIPhotoEffectProcess",
+    "CIPhotoEffectTonal",
+    "CIPhotoEffectTransfer",
+    "CISepiaTone",
+]
+var filterSelectIndex = 0
+
 struct EffectView: View {
 
     @Binding var isShowSheet: Bool
@@ -27,7 +40,12 @@ struct EffectView: View {
             Spacer()
 
             Button(action: {
-                let filterName = "CIPhotoEffectMono"
+                let filterName = filterArray[filterSelectIndex]
+                print("filter: \(filterName)")
+                filterSelectIndex += 1
+                if filterSelectIndex >= filterArray.count {
+                    filterSelectIndex = 0
+                }
                 let rotate = captureImage.imageOrientation
                 let inputImage = CIImage(image: captureImage)
 
