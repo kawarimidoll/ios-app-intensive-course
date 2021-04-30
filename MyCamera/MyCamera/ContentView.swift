@@ -11,6 +11,7 @@ struct ContentView: View {
 
     @State var captureImage: UIImage? = nil
     @State var isShowSheet = false
+    @State var isShowActivity = false
 
     var body: some View {
 
@@ -43,6 +44,23 @@ struct ContentView: View {
             .padding()
             .sheet(isPresented: $isShowSheet) {
                 ImagePickerView(isShowSheet: $isShowSheet, captureImage: $captureImage)
+            }
+
+            Button(action: {
+                if (captureImage != nil) {
+                    isShowActivity = true
+                }
+            }) {
+                Text("Share the photo")
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 50)
+                    .multilineTextAlignment(.center)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+            }
+            .padding()
+            .sheet(isPresented: $isShowActivity) {
+                ActivityView(shareItems: [captureImage!])
             }
         }
     }

@@ -7,14 +7,17 @@
 
 import SwiftUI
 
-struct ActivityView: View {
-    var body: some View {
-        Text("Activitiy")
-    }
-}
+struct ActivityView: UIViewControllerRepresentable {
+    let shareItems: [Any]
 
-struct ActivityView_Previews: PreviewProvider {
-    static var previews: some View {
-        ActivityView()
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
     }
+
+    func updateUIViewController(
+        _ uiViewController: UIActivityViewController,
+        context: UIViewControllerRepresentableContext<ActivityView>) {
+        // nop
+    }
+
 }

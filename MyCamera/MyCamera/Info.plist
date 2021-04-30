@@ -21,7 +21,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Use camera to take photos.</string>
+	<string>Use camera to take a photo.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Use to save a photo you took.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
