@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+
+    @State var timerHandler: Timer?
+    @State var count = 0
+    @AppStorage("timer_value") var timerValue = 10
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -17,20 +22,65 @@ struct ContentView: View {
                     .aspectRatio(contentMode: .fill)
 
                 VStack(spacing: 30.0) {
-                    Text("10 sec...")
+                    Text("\(timerValue - count) sec...")
                         .font(.largeTitle)
 
                     HStack {
-                        CircleButtonView(buttonName: "start")
-                        CircleButtonView(buttonName: "stop")
+                        CircleButtonView(
+                            buttonName: "start",
+                            buttonAction: startTimer)
+
+                        CircleButtonView(
+                            buttonName: "stop",
+                            buttonAction: {
+                                if let unwrapedTimerHandler = timerHandler {
+                                    if unwrapedTimerHandler.isValid == true {
+                                        // stop timer
+                                        timerHandler?.invalidate()
+                                    }
+                                }
+                            })
                     }
                 }
             }
-            .navigationBarItems(trailing:
-                                    NavigationLink(destination: SettingView()) {
-                                        Text("Set time")
-                                    }
+            .navigationBarItems(
+                trailing:
+                    NavigationLink(destination: SettingView()) {
+                        Text("Set time")
+                    }
             )
+        }
+    }
+
+    func countDownTimer() {
+        count += 1
+
+        if timerValue - count <= 0 {
+            // stop timer
+            timerHandler?.invalidate()
+        }
+    }
+
+    func startTimer() {
+        if let unwrapedTimerHandler = timerHandler {
+            // isValid means the timier is running
+            if unwrapedTimerHandler.isValid == true {
+                return
+            }
+        }
+
+        if timerValue - count <= 0 {
+            count = 0
+        }
+
+
+        // schedule to call countDownTimer(),
+        // repeatedly, with interval 1 second
+        timerHandler = Timer.scheduledTimer(
+            withTimeInterval: 1,
+            repeats: true) {
+            _ in
+            countDownTimer()
         }
     }
 }

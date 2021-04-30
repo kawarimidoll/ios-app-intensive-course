@@ -10,11 +10,10 @@ import SwiftUI
 struct CircleButtonView: View {
 
     let buttonName: String
+    let buttonAction: (() -> Void);
 
     var body: some View {
-        Button(action: {
-
-        }) {
+        Button(action: buttonAction) {
             Text("\(buttonName.capitalized)!")
                 .font(.title)
                 .foregroundColor(Color.white)
@@ -27,6 +26,8 @@ struct CircleButtonView: View {
 
 struct CircleButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        CircleButtonView(buttonName: "start")
+        CircleButtonView(
+            buttonName: "start",
+            buttonAction: {})
     }
 }
