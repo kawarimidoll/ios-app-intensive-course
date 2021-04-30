@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ActivityView: UIViewControllerRepresentable {
+    
     let shareItems: [Any]
 
     func makeUIViewController(context: Context) -> UIActivityViewController {
