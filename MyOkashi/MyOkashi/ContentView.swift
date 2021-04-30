@@ -13,8 +13,11 @@ struct ContentView: View {
     @State var inputText = ""
 
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            TextField("Input keyword", text: $inputText, onCommit: {
+                okashiDataList.search(keyword: inputText)
+            })
+        }
     }
 }
 
