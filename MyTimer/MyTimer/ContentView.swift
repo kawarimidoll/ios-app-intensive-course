@@ -13,6 +13,8 @@ struct ContentView: View {
     @State var count = 0
     @AppStorage("timer_value") var timerValue = 10
 
+    @State var showAlert = false
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -33,11 +35,9 @@ struct ContentView: View {
                         CircleButtonView(
                             buttonName: "stop",
                             buttonAction: {
-                                if let unwrapedTimerHandler = timerHandler {
-                                    if unwrapedTimerHandler.isValid == true {
-                                        // stop timer
-                                        timerHandler?.invalidate()
-                                    }
+                                if timerRunning() {
+                                    // stop timer
+                                    timerHandler?.invalidate()
                                 }
                             })
                     }
@@ -49,6 +49,14 @@ struct ContentView: View {
                         Text("Set time")
                     }
             )
+            .onAppear{
+                count = 0
+                timerHandler?.invalidate()
+            }
+            .alert(isPresented: $showAlert) {Alert(title: Text("Finish!"),
+                             message: Text("It's time!"),
+                             dismissButton: .default(Text("OK")))
+            }
         }
     }
 
@@ -58,15 +66,24 @@ struct ContentView: View {
         if timerValue - count <= 0 {
             // stop timer
             timerHandler?.invalidate()
+
+            showAlert = true
+//            count = 0
         }
     }
 
+    func timerRunning() -> Bool {
+        // isValid means the timier is running
+        if let unwrapedTimerHandler = timerHandler,
+           unwrapedTimerHandler.isValid {
+            return true
+        }
+        return false
+    }
+
     func startTimer() {
-        if let unwrapedTimerHandler = timerHandler {
-            // isValid means the timier is running
-            if unwrapedTimerHandler.isValid == true {
-                return
-            }
+        if timerRunning() {
+            return
         }
 
         if timerValue - count <= 0 {
