@@ -10,7 +10,7 @@ import SwiftUI
 struct EffectView: View {
 
     @Binding var isShowSheet: Bool
-    let captureImage: UIImage // effect target image
+    let captureImage: UIImage // effect target image (not bind)
     @State var showImage: UIImage? // output image
     @State var isShowActivity = false
 
@@ -27,7 +27,37 @@ struct EffectView: View {
             Spacer()
 
             Button(action: {
+                let filterName = "CIPhotoEffectMono"
+                let rotate = captureImage.imageOrientation
+                let inputImage = CIImage(image: captureImage)
 
+                guard let effectFilter =
+                        CIFilter(name: filterName) else {
+                    return
+                }
+
+                effectFilter.setDefaults()
+                effectFilter.setValue(
+                    inputImage, forKey: kCIInputImageKey)
+
+                guard let outputImage =
+                        effectFilter.outputImage else {
+                    return
+                }
+
+                let ciContext = CIContext(options: nil)
+
+                guard let cgImage =
+                        ciContext.createCGImage(
+                            outputImage, from: outputImage.extent)
+                else {
+                    return
+                }
+
+                showImage =
+                    UIImage(cgImage: cgImage,
+                            scale: 1.0,
+                            orientation: rotate)
             }) {
                 Text("Set effect")
                     .frame(maxWidth: .infinity)
@@ -39,7 +69,7 @@ struct EffectView: View {
             .padding()
 
             Button(action: {
-
+                isShowActivity = true
             }) {
                 Text("Share")
                     .frame(maxWidth: .infinity)
@@ -49,9 +79,12 @@ struct EffectView: View {
                     .foregroundColor(.white)
             }
             .padding()
+            .sheet(isPresented: $isShowActivity) {
+                ActivityView(shareItems: [showImage!])
+            }
 
             Button(action: {
-
+                isShowSheet = false
             }) {
                 Text("Close")
                     .frame(maxWidth: .infinity)
