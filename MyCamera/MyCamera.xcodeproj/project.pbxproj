@@ -13,6 +13,7 @@
 		7B0ECA3B263B9BE400877063 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B0ECA3A263B9BE400877063 /* Preview Assets.xcassets */; };
 		7B0ECA44263B9C6E00877063 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0ECA43263B9C6E00877063 /* ImagePickerView.swift */; };
 		7B0ECA47263B9CAD00877063 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0ECA46263B9CAD00877063 /* ActivityView.swift */; };
+		7B0ECA4C263BCF6B00877063 /* PHPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0ECA4B263BCF6B00877063 /* PHPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		7B0ECA3C263B9BE400877063 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B0ECA43263B9C6E00877063 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		7B0ECA46263B9CAD00877063 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		7B0ECA4B263BCF6B00877063 /* PHPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				7B0ECA33263B9BE200877063 /* MyCameraApp.swift */,
 				7B0ECA35263B9BE200877063 /* ContentView.swift */,
+				7B0ECA4B263BCF6B00877063 /* PHPickerView.swift */,
 				7B0ECA43263B9C6E00877063 /* ImagePickerView.swift */,
 				7B0ECA46263B9CAD00877063 /* ActivityView.swift */,
 				7B0ECA37263B9BE400877063 /* Assets.xcassets */,
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B0ECA4C263BCF6B00877063 /* PHPickerView.swift in Sources */,
 				7B0ECA36263B9BE200877063 /* ContentView.swift in Sources */,
 				7B0ECA47263B9CAD00877063 /* ActivityView.swift in Sources */,
 				7B0ECA44263B9C6E00877063 /* ImagePickerView.swift in Sources */,

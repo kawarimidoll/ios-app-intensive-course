@@ -12,6 +12,10 @@ struct ContentView: View {
     @State var captureImage: UIImage? = nil
     @State var isShowSheet = false
     @State var isShowActivity = false
+    @State var isPhotoLibrary = false
+    @State var isShowAction = false
+
+    @State var showAlert = false
 
     var body: some View {
 
@@ -27,9 +31,9 @@ struct ContentView: View {
             Spacer()
 
             Button(action: {
-                if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                if cameraIsEnable() {
                     print("available")
-                    isShowSheet = true
+                    isShowAction = true
                 } else {
                     print("disabled")
                 }
@@ -43,12 +47,39 @@ struct ContentView: View {
             }
             .padding()
             .sheet(isPresented: $isShowSheet) {
-                ImagePickerView(isShowSheet: $isShowSheet, captureImage: $captureImage)
+                if isPhotoLibrary {
+                    PHPickerView(isShowSheet: $isShowSheet, captureImage: $captureImage)
+                } else {
+                    ImagePickerView(isShowSheet: $isShowSheet, captureImage: $captureImage)
+                }
+            }
+            .actionSheet(isPresented: $isShowAction) {
+                ActionSheet(
+                    title: Text("Select"),
+                    message: Text("Camera or photo library"),
+                    buttons: [
+                        .default(Text("Camera"), action: {
+                            if cameraIsEnable() {
+                                print("available")
+                                isShowSheet = true
+                            } else {
+                                print("disabled")
+                            }
+                            isPhotoLibrary = false
+                        }),
+                        .default(Text("Photo library"), action: {
+                            isPhotoLibrary = true
+                            isShowSheet = true
+                        }),
+                        .cancel()
+                    ])
             }
 
             Button(action: {
                 if (captureImage != nil) {
                     isShowActivity = true
+                } else {
+                    showAlert = true
                 }
             }) {
                 Text("Share the photo")
@@ -62,7 +93,16 @@ struct ContentView: View {
             .sheet(isPresented: $isShowActivity) {
                 ActivityView(shareItems: [captureImage!])
             }
+            .alert(isPresented: $showAlert){
+                Alert(title: Text("No photo!"),
+                      message: Text("Take a photo or select from library"),
+                      dismissButton: .default(Text("OK")))
+            }
         }
+    }
+
+    func cameraIsEnable() -> Bool {
+        UIImagePickerController.isSourceTypeAvailable(.camera)
     }
 }
 
