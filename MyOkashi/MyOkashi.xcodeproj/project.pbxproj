@@ -12,6 +12,7 @@
 		7BA0FF1B263CB82E00E5BA8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BA0FF1A263CB82E00E5BA8D /* Assets.xcassets */; };
 		7BA0FF1E263CB82E00E5BA8D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BA0FF1D263CB82E00E5BA8D /* Preview Assets.xcassets */; };
 		7BA0FF27263CB8F400E5BA8D /* OkashiData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA0FF26263CB8F400E5BA8D /* OkashiData.swift */; };
+		7BA0FF2B263CD2B200E5BA8D /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA0FF2A263CD2B200E5BA8D /* SafariView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		7BA0FF1D263CB82E00E5BA8D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7BA0FF1F263CB82E00E5BA8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BA0FF26263CB8F400E5BA8D /* OkashiData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OkashiData.swift; sourceTree = "<group>"; };
+		7BA0FF2A263CD2B200E5BA8D /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				7BA0FF16263CB82D00E5BA8D /* MyOkashiApp.swift */,
 				7BA0FF18263CB82D00E5BA8D /* ContentView.swift */,
+				7BA0FF2A263CD2B200E5BA8D /* SafariView.swift */,
 				7BA0FF26263CB8F400E5BA8D /* OkashiData.swift */,
 				7BA0FF1A263CB82E00E5BA8D /* Assets.xcassets */,
 				7BA0FF1F263CB82E00E5BA8D /* Info.plist */,
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BA0FF2B263CD2B200E5BA8D /* SafariView.swift in Sources */,
 				7BA0FF19263CB82D00E5BA8D /* ContentView.swift in Sources */,
 				7BA0FF27263CB8F400E5BA8D /* OkashiData.swift in Sources */,
 				7BA0FF17263CB82D00E5BA8D /* MyOkashiApp.swift in Sources */,
