@@ -6,12 +6,19 @@
 //
 
 import Foundation
+import UIKit
+
+struct OkashiItem: Identifiable {
+    let id = UUID()
+    let name: String
+    let link: URL
+    let image: UIImage
+}
 
 class OkashiData: ObservableObject {
 
     struct ResultJson: Codable {
         struct Item: Codable {
-            let id: String?
             let name: String?
             // priceはレスポンスが文字列でなく{}になってることがあるっぽいので対応が面倒…
             // let price: String?
@@ -21,6 +28,8 @@ class OkashiData: ObservableObject {
 
         let item: [Item]?
     }
+
+    @Published var okashiList: [OkashiItem] = []
 
     func search(keyword: String) {
         print("keyword: \(keyword)")
@@ -45,7 +54,21 @@ class OkashiData: ObservableObject {
                 let decoder = JSONDecoder()
                 let json = try decoder.decode(ResultJson.self, from: data!)
 
-                print("result: \(json)")
+                if let items = json.item {
+                    self.okashiList.removeAll()
+                    for item in items {
+                        if let name = item.name,
+                           let link = item.url,
+                           let imageUrl = item.image,
+                           let imageData = try? Data(contentsOf: imageUrl),
+                           let image = UIImage(data: imageData)?.withRenderingMode(.alwaysOriginal) {
+                            let okashi = OkashiItem(name: name, link: link, image: image)
+                            self.okashiList.append(okashi)
+                        }
+                    }
+                }
+
+                print("result: \(self.okashiList)")
             } catch {
                 print("ERROR! \(error)")
             }

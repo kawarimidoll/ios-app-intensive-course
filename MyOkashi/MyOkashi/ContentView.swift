@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
 
+    // ObservableObject内の@Published付きプロパティの変化を監視してbody更新
     @ObservedObject var okashiDataList = OkashiData()
     @State var inputText = ""
 
@@ -17,6 +18,20 @@ struct ContentView: View {
             TextField("Input keyword", text: $inputText, onCommit: {
                 okashiDataList.search(keyword: inputText)
             })
+            .padding()
+
+            List(okashiDataList.okashiList) {
+                okashi in
+
+                HStack {
+                    Image(uiImage: okashi.image)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 40)
+                    Text(okashi.name)
+                }
+
+            }
         }
     }
 }
